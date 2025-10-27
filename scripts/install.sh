@@ -19,8 +19,8 @@ apt autoremove --purge -y
 # Packages
 TOOLS=(tree tmux htop bpytop fastfetch)
 VISUALS=(cmatrix)
-SECURITY=(lynis ufw)
-DEVOPS=(docker.io)
+SECURITY=(ufw apparmor apparmor-utils auditd lynis)
+DEVOPS=(docker.io gnome-boxes)
 
 PCKGS=("${TOOLS[@]}" "${VISUALS[@]}" "${SECURITY[@]}" "${DEVOPS[@]}")
 
