@@ -6,7 +6,8 @@ sudo cat vaar/log/secure | grep failed # List failed password checks
 find ~/Documents/ -type f -mtime -<num-days> -ls # Recently modified files
 sudo lynis audit system # Run Lynis scan
 
-sudo netstat -tulpn # Print listening ports 
+sudo ss -tulpn # List listening sockets and owning PID
+ps -p <PID> -o pid,comm,args # Display PID, binary and command-line invocation
 
 # tar
 tar czf <name>.tar.gz <name>/ # Compress with gzip
