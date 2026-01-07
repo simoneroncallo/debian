@@ -11,7 +11,7 @@ ps -p <PID> -o pid,comm,args # Display PID, binary and command-line invocation
 
 # tar
 tar czf <name>.tar.gz <name>/ # Compress with gzip
-tar cJf <name>.tar.x< <name>/ # Compress with xz
+tar cJf <name>.tar.xz <name>/ # Compress with xz
 find <path> -type d -exec chmod 755 {} \; # Set directories permission
 find <path> -type f -exec chmod 644 {} \; # Set files permissions
 
