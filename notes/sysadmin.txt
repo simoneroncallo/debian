@@ -9,6 +9,8 @@ sudo lynis audit system # Run Lynis scan
 sudo ss -tulpn # List listening sockets and owning PID
 ps -p <PID> -o pid,comm,args # Display PID, binary and command-line invocation
 
+sudo fail2ban-client status sshd # Print fail2ban status
+
 # tar
 tar czf <name>.tar.gz <name>/ # Compress with gzip
 tar cJf <name>.tar.xz <name>/ # Compress with xz
