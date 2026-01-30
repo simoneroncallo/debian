@@ -4,3 +4,6 @@
 
 # Ignore archived files
 /.archive/
+
+# Ignore todo list
+todo.txt
