@@ -1,3 +1,6 @@
 # Ignore backups
 *.bac
 *.bak
+
+# Ignore archived files
+./.archive
