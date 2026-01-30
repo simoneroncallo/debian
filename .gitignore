@@ -3,4 +3,4 @@
 *.bak
 
 # Ignore archived files
-./.archive
+/.archive/
