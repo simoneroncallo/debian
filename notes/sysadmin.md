@@ -14,6 +14,8 @@ sudo fail2ban-client status sshd # Print fail2ban status
 # tar
 tar czf <name>.tar.gz <name>/ # Compress with gzip
 tar cJf <name>.tar.xz <name>/ # Compress with xz
+par2 create -r10 -n1 <filename> # Create par2 file with 10% redundancy
+par2 verify <filename> # Verify file
 find <path> -type d -exec chmod 755 {} \; # Set directories permission
 find <path> -type f -exec chmod 644 {} \; # Set files permissions
 
