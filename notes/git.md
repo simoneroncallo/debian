@@ -4,6 +4,7 @@ git config --global user.email "you@example.com" # Set email address
 
 git clone https://github.com//<username>/<repo>.git # Clone repository
 git status # Show modified/staged files
+git log --graph --full-history --all # Print graphical history of the repository
 
 # git | push
 git add . # Stage changes
