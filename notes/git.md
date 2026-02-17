@@ -6,17 +6,17 @@ git clone https://github.com//<username>/<repo>.git # Clone repository
 git status # Show modified/staged files
 git log --graph --full-history --all # Print graphical history of the repository
 
-# git | push
+# push
 git add . # Stage changes
 git commit -m <string> # Commit changes
 git push origin main # Merge 'local' to 'remote'
 
-# git | pull
+# pull
 git fetch origin # Sync 
 git pull origin main # Merge 'remote' into 'local'
 git pull --rebase origin main
 
-# git | branch
+# branch
 git switch <branch> # Switch branch
 git switch -c <branch> # Create branch
 
