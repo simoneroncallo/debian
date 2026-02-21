@@ -1,0 +1,49 @@
+#!/bin/bash
+# =============================================================================
+# backup2ext - Incremental backup of $HOME to an external drive
+#
+# Author: Simone Roncallo
+# Usage: backup2ext
+# Dependencies: rsync, a mounted external drive
+# Install: Place this file in ~/.local/bin/ and make it executable
+#
+# Config file: ~/.backup.conf (required)
+#   MOUNT=<drive mount point>
+#   DRY=<true|false>
+#
+# Exclude file: ~/backup.ignore (required)
+#   Standard rsync exclude patterns, one per line
+# ============================================================================
+
+set -e
+cd ~
+
+# Load configuration
+CONF="$HOME/.backup.conf"
+[ -f "$CONF" ] || { echo "Aborted. Config file not found: $CONF"; exit 1; }
+. "$CONF"
+
+# Validate mount point
+[ -d "$MOUNT" ] || { echo "Aborted. Drive not mounted: $MOUNT"; exit 1; }
+
+# Set up snapshot directories
+SOURCE="/home/$USER"
+BACKUP="$MOUNT/${USER}${HOSTNAME}-backup"
+LAST="$BACKUP/last"
+SNAPSHOT="$BACKUP/snapshots/$(date +%Y%m%d-%H%M%S)"
+
+mkdir -p "$SNAPSHOT"
+
+# Run backup
+[ "$DRY" = true ] && dry="--dry-run"
+
+rsync -avP ${dry:-} \
+    --delete \
+    --link-dest="$LAST/" \
+    --exclude-from="$HOME/.backup.ignore" \
+    "$SOURCE/" "$SNAPSHOT"
+
+# Update symlink
+rm -f "$LAST" && ln -s "$SNAPSHOT" "$LAST"
+
+echo "Complete -> $SNAPSHOT"
