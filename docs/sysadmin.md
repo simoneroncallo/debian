@@ -20,12 +20,16 @@ find <path> -type d -exec chmod 755 {} \; # Set directories permission
 find <path> -type f -exec chmod 644 {} \; # Set files permissions
 
 # device
-lsblk -f
-sudo smartctl -a /dev/sdX # Print SMART attributes
+lsblk -f # List drives with UUID
+udisksctl mount -b /dev/<sdXN> # Mount partition
+sync # Flush buffers
+udisksctl unmount -b /dev/<sdXN> # Unmount partition 
+udisksctl power-off -b /dev/<sdX> # Eject drive
 
+sudo smartctl -a /dev/<sdX> # Print SMART attributes
 sudo btrfs scrub start / # Integrity check on mounted filesystem 
 sudo btrfs scrub status / # Print status
 sudo btrfs scrub cancel /
 
-OPT=nosuid,nodev,nofail,noauto,x-gvfs-show,uid=1000,gid=1000,fmask=133,dmask=022 # Standard permissions
-sudo mount -o "$OPT" /dev/sdX /mnt/point # Mount
+OPT=nosuid,nodev,nofail,noauto,x-gvfs-show,uid=1000,gid=1000,fmask=133,dmask=022 # Set standard permissions
+sudo mount -o "$OPT" /dev/sdX /mnt/point # Mount partition
