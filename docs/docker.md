@@ -14,3 +14,4 @@ docker images # List images
 docker stop <container-name> # Stop container 
 docker rm <container-name> # Remove container
 docker rmi debian:trixie # Remove image
+docker system prune -a # Remove unused containers and data
