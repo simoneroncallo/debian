@@ -13,7 +13,7 @@ sudo mv Argyll_V3.5.0/ /opt/argyll_V3.5.0/ # install argyllcms
 sudo cp /opt/argyll_V3.5.0/usb/55-Argyll.rules /etc/udev/rules.d/55-Argyll.rules
 sudo udevadm control --reload && sudo udevadm trigger # update udev
 
-echo "export PATH='$PATH/opt/argyll_V3.5.0/bin'" >> ~/.bashrc
+echo 'export PATH="$PATH:/opt/argyll_V3.5.0/bin"' >> ~/.bashrc
 source ~/.bashrc
 
 # test
