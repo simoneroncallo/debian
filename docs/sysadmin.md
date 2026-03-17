@@ -2,7 +2,7 @@
 ps -eZ | grep <process> # List processes with SELinux labels
 sudo ausearch -m avc -ts recent # List SELinux denials
 
-sudo cat vaar/log/secure | grep failed # List failed password checks
+sudo cat var/log/secure | grep failed # List failed password checks
 find ~/Documents/ -type f -mtime -<num-days> -ls # Recently modified files
 sudo lynis audit system # Run Lynis scan
 
