@@ -15,7 +15,7 @@ set -e
 dnf upgrade --refresh
 
 # Packages
-BASIC=(tree par2cmdline tmux htop btop fastfetch)
+BASIC=(eza tree alacritty par2cmdline tmux htop btop fastfetch)
 SECURITY=(firewall-config lynis)
 CODE=(python3 gcc-c++)
 TOOLS=(inkscape gimp gnome-boxes)

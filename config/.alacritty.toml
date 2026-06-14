@@ -1,0 +1,14 @@
+[window]
+decorations = "None"
+startup_mode = "Maximized"
+dimensions = { columns = 80, lines = 24 }
+padding = { x = 5, y = 5 }
+dynamic_padding = true
+# opacity = 1
+# blur = true
+
+[font]
+normal = { family = "JetBrains Mono NF", style = "Regular" }
+bold = { family = "JetBrains Mono NF", style = "Bold" }
+italic = { family = "JetBrains Mono NF", style = "Italic" }
+bold_italic = { family = "JetBrains Mono NF", style = "Bold Italic" }

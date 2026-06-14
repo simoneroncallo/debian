@@ -1,2 +1,3 @@
 # Utils
-alias ll="ls -la --color=auto"
+alias ll="eza -la --icons"
+alias pen="gnome-text-editor"
