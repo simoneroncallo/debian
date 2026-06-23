@@ -29,4 +29,9 @@ git push --force-with-lease origin branch-name # Force push
 
 git fetch -p origin # Prune deleted branches 
 git diff --cached # View changes
+
 git restore <file> # Restore file
+git merge <branch> # Merge branch
+git checkout <branch> -- <path> # Selective merge from branch
+git reset --soft HEAD~1 # Unstage last commit
+git reset --soft HEAD~n # Unstage n-last commit
