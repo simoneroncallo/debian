@@ -4,34 +4,45 @@
 #
 # Script Name: install.sh
 # Author: Simone Roncallo
-# Description: Personal configuration for a Fedora installation
-# Requirements: Fedora, dnf, sudo
+# Description: Personal configuration for an Arch Linux installation
+# Requirements: pacman, sudo
 # Instructions: Run with sudo
 #
 # ========================================================================
 
 set -e
 
-dnf upgrade --refresh
+pacman -Syu
 
 # Packages
-BASIC=(eza tree alacritty micro par2cmdline tmux htop btop fastfetch)
-SECURITY=(firewall-config lynis)
-CODE=(python3 gcc-c++)
-TOOLS=(inkscape gimp gnome-boxes)
+BASIC=(
+	nano vim micro 
+	git rsync par2cmdline
+	openssh sshfs
+	bat tree fish tmux
+	htop btop
+	eza tldr fastfetch
+	cmatrix
+)
 
-PCKGS=(\
-	"${BASIC[@]}" \
-	"${SECURITY[@]}" \
-	"${CODE[@]}" \
-	"${TOOLS[@]}"\
-	)
+MEDIA=(
+	steam mangohud gamemode
+	inkscape gimp darktable
+	audacity
+)
 
-# LaTeX
-# dnf install texlive-scheme-full
+SECURITY=(
+	keepasxc
+	firewall-config
+	apparmor lynis
+)
 
-dnf install "${PCKGS[@]}"
-dnf autoremove
-dnf clean all
+PCKGS=(
+    "${BASIC[@]}"
+    "${MEDIA[@]}"
+    "${SECURITY[@]}"
+)
+
+pacman -S --needed "${PCKGS[@]}"
 
 echo "Completed."
