@@ -32,7 +32,7 @@ MEDIA=(
 )
 
 SECURITY=(
-	keepasxc
+	keepassxc
 	firewall-config
 	apparmor lynis
 )
